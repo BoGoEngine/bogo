@@ -46,6 +46,9 @@ build()  {
         mkdir ${pkgdir}/usr/
 	mkdir ${pkgdir}/usr/lib/
 	mkdir ${pkgdir}/usr/lib/bogo/
+	mkdir ${pkgdir}/usr/lib/python2.7/
+	mkdir {pkgdir}/usr/lib/python2.7/site-packages/
+	mkdir {pkgdir}/usr/lib/python2.7/site-packages/BoGo
 	mkdir ${pkgdir}/usr/share
 	mkdir ${pkgdir}/usr/share/ibus/
 	mkdir ${pkgdir}/usr/share/ibus/component/
@@ -54,6 +57,8 @@ build()  {
 	install -D -m755 ${srcdir}/${_gitname}/build/src/libbogo.so ${pkgdir}/usr/lib/ || return 1
 	install -D -m755 ${srcdir}/${_gitname}/build/src/libbogo.so.0 ${pkgdir}/usr/lib/ || return 1
 	install -D -m755 ${srcdir}/${_gitname}/build/src/libbogo.so.0.1.0 ${pkgdir}/usr/lib/ || return 1
+	install -D -m755 ${srcdir}/${_gitname}/bindings/python/Charset.py ${pkgdir}/usr/lib/python2.7/site-packages/BoGo/ || return 1
+	install -D -m755 ${srcdir}/${_gitname}/bindings/python/__init__.py ${pkgdir}/usr/lib/python2.7/site-packages/BoGo/ || return 1
 	
 	cd ${srcdir}/${_gitname}/${_gitpythonname}
 	install -D -m755 engine/ibus-engine-bogo ${pkgdir}/usr/lib/bogo/ || return 1
