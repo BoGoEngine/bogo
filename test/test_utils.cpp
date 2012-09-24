@@ -22,6 +22,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include "utils.hpp"
+#include "engine.hpp"
 
 using namespace std;
 using namespace Glib;
@@ -38,6 +39,10 @@ vector<ustring> makeustringVec3 (const gchar *e0,
     v[1] = _(e1);
     v[2] = _(e2);
     return v;
+}
+
+TEST (CheckUwa, processKeyUTF8) {
+    EXPECT_STREQ ("ưa", __(processKeyUTF8("ư", 'a')));
 }
 
 TEST (MarkAndWord, CanAddMarkToLetterP) {
@@ -83,6 +88,7 @@ TEST (TextManipulation, AddAccentToText) {
     EXPECT_STREQ ("nokckf", __(addAccentToText ("nokckf", TILDE)));
     EXPECT_STREQ ("gôu", __(addAccentToText ("gốu", NO_ACCENT)));
     EXPECT_STREQ ("sách", __(addAccentToText ("sach", ACUTE)));
+    EXPECT_STREQ ("gì", __(addAccentToText ("gi", GRAVE)));
 }
 
 TEST (TextManipulation, ValidEndingConsonants) {
@@ -238,6 +244,10 @@ TEST (WordHelpers, WordSeparator) {
                  analyseWord ("qUaN"));
     EXPECT_TRUE (makeustringVec3 ("Gi", "Áo", "") ==
                  analyseWord ("GiÁo"));
+    EXPECT_TRUE (makeustringVec3 ("G", "i", "") ==
+                 analyseWord ("Gi"));
+    EXPECT_TRUE (makeustringVec3 ("G", "i", "n") ==
+                 analyseWord ("Gin"));
 }
 
 TEST (CharacterHelpers, ConsonantsAndVowels) {
