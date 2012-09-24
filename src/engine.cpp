@@ -117,4 +117,3 @@ namespace BoGo {
 #undef _
 #undef __
 }
-
