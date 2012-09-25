@@ -58,11 +58,6 @@ Chạy lệnh
 
 __Với bản ở branch master__
 
-Bản này cần sử dụng hai lệnh sau để cập nhật git submodule mới make thành công được:
-
-    git submodule init
-    git submodule update
-
 ### Build bình thường
 
     $ mkdir build && cd build
@@ -75,13 +70,6 @@ Sau đó build BoGo trong chế độ Debug và chạy các bài test:
     $ mkdir build && cd build
     $ cmake "-DCMAKE_BUILD_TYPE:STRING=Debug" ..
     $ make all test_utils
-    $ test/test_utils
-
-### Build gói debian
-
-Cần cài gói:
-
-* devscripts
 
 Commands:
 

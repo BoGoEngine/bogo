@@ -62,8 +62,13 @@ namespace BoGo {
         // TODO refactor
 
         // Case: `key` is not for transforming
-        if (availTrans.size () == 0)
-            return addChar (text, _(key));
+        if (availTrans.size () == 0) {
+            ustring result = addChar (text, _(key));
+            Accents accent = getAccentFromWord (result);
+            result = removeAccentFromLastWord (result);
+            result = addAccentToText (result, accent);
+            return result;
+        }
 
         TransformTypeT markOrAccent;
         // cerr << "Text >> " << __(text) << " -> " << endl;
@@ -99,8 +104,6 @@ namespace BoGo {
                 res = addChar (removeAccentFromLastWord (text), _(key));
         }
 
-
-
         return res;
     }
 
@@ -112,4 +115,3 @@ namespace BoGo {
 #undef _
 #undef __
 }
-
