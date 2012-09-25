@@ -26,5 +26,5 @@ target_link_libraries (bogo ${GLIBMM_LIBRARIES})
 
 install (TARGETS
   bogo
-  LIBRARY DESTINATION lib
+  LIBRARY DESTINATION /usr/lib
   )
