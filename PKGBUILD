@@ -47,8 +47,8 @@ build()  {
 	mkdir ${pkgdir}/usr/lib/
 	mkdir ${pkgdir}/usr/lib/bogo/
 	mkdir ${pkgdir}/usr/lib/python2.7/
-	mkdir {pkgdir}/usr/lib/python2.7/site-packages/
-	mkdir {pkgdir}/usr/lib/python2.7/site-packages/BoGo
+	mkdir ${pkgdir}/usr/lib/python2.7/site-packages/
+	mkdir ${pkgdir}/usr/lib/python2.7/site-packages/BoGo
 	mkdir ${pkgdir}/usr/share
 	mkdir ${pkgdir}/usr/share/ibus/
 	mkdir ${pkgdir}/usr/share/ibus/component/
