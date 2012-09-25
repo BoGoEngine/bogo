@@ -1,3 +1,4 @@
+add_subdirectory (../gtest gtest/)
 
 include_directories (BEFORE ${gtest_SOURCE_DIR}/include)
 
