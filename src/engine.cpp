@@ -62,12 +62,14 @@ namespace BoGo {
         // TODO refactor
 
         // Case: `key` is not for transforming
-        if (availTrans.size () == 0)
-            return addChar (text, _(key));
-
-        // Quick and dirty hack for "uwa" -> "ưa"
-        if ( (key == 'a') && (text.find_last_of("ư") == text.size() -1)) {
-            return addChar (text, _(key));
+        if (availTrans.size () == 0) {
+            ustring result = addChar (text, _(key));
+            if (hasValidEndingConsonantsP (result)) {
+                Accents accent = getAccentFromWord (result);
+                result = removeAccentFromLastWord (result);
+                result = addAccentToText (result, accent);
+            }
+            return result;
         }
 
         TransformTypeT markOrAccent;
@@ -104,8 +106,6 @@ namespace BoGo {
                 res = addChar (removeAccentFromLastWord (text), _(key));
         }
 
-
-
         return res;
     }
 
@@ -117,4 +117,3 @@ namespace BoGo {
 #undef _
 #undef __
 }
-
