@@ -3,7 +3,14 @@ execute_process(COMMAND
   OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 install (FILES
+<<<<<<< HEAD
+  __init__.py
+  Charset.py
+  DESTINATION "${PYTHON_SITE_PACKAGES}/BoGo"
+)
+=======
  __init__.py
 # Charset.py
  DESTINATION "${PYTHON_SITE_PACKAGES}/BoGo"
  )
+>>>>>>> upstream/master

@@ -46,17 +46,26 @@ vui lòng tham khảo cách đặt tên trong distro của bạn.
 
 ## Hướng dẫn build
 
+<<<<<<< HEAD
+__Với bản ở branch master__
+
+=======
+>>>>>>> upstream/master
 ### Build bình thường
 
     $ mkdir build && cd build
     $ cmake .. && make install
 
 ### Build debug, tests
+<<<<<<< HEAD
+=======
+
 **Ghi chú:** trước khi có thể biên dịch, bạn cần vào thư mục gốc của project,
 chạy lệnh:
 
     git submodule init
     git submodule update
+>>>>>>> upstream/master
 
 Sau đó build BoGo trong chế độ Debug và chạy các bài test:
 
@@ -70,7 +79,7 @@ Commands:
     $ git checkout -b build
     $ git merge master
     $ debuild -us -uc
-
+   
 (optional - xóa branch build)
 
     $ git branch -D build
